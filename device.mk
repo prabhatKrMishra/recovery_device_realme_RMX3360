@@ -78,3 +78,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     tzdata_twrp
 
+# Apex libraries
+PRODUCT_COPY_FILES += \
+    $(OUT_DIR)/target/product/RMX3360/obj/SHARED_LIBRARIES/libandroidicu_intermediates/libandroidicu.so:$(TARGET_COPY_OUT_RECOVERY)/root/system/lib64/libandroidicu.so
+
