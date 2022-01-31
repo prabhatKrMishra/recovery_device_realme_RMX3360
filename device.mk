@@ -18,6 +18,9 @@
 
 LOCAL_PATH := device/realme/RMX3360
 
+# Enable project quotas and casefolding for emulated storage without sdcardfs
+$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
+
 # A/B support
 AB_OTA_UPDATER := true
 
