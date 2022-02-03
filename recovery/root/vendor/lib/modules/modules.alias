@@ -1,0 +1,17 @@
+# Aliases extracted from modules themselves.
+alias of:N*T*Cqcom,mdp4 msm_drm
+alias of:N*T*Cqcom,mdp4C* msm_drm
+alias of:N*T*Cqcom,mdss msm_drm
+alias of:N*T*Cqcom,mdssC* msm_drm
+alias of:N*T*Cqcom,sde-kms msm_drm
+alias of:N*T*Cqcom,sde-kmsC* msm_drm
+alias of:N*T*Cqcom,smmu_sde_unsec msm_drm
+alias of:N*T*Cqcom,smmu_sde_unsecC* msm_drm
+alias of:N*T*Cqcom,smmu_sde_sec msm_drm
+alias of:N*T*Cqcom,smmu_sde_secC* msm_drm
+alias of:N*T*Cqcom,smmu_sde_nrt_unsec msm_drm
+alias of:N*T*Cqcom,smmu_sde_nrt_unsecC* msm_drm
+alias of:N*T*Cqcom,smmu_sde_nrt_sec msm_drm
+alias of:N*T*Cqcom,smmu_sde_nrt_secC* msm_drm
+alias of:N*T*Cqcom,msm-hdcp msm_drm
+alias of:N*T*Cqcom,msm-hdcpC* msm_drm

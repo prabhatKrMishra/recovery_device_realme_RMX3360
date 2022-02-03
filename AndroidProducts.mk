@@ -17,4 +17,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-     $(LOCAL_DIR)/omni_lahaina.mk
+     $(LOCAL_DIR)/twrp_RMX3360.mk
+
+COMMON_LUNCH_CHOICES := \
+    twrp_RMX3360-eng

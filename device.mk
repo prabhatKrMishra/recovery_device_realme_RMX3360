@@ -16,13 +16,23 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/qualcomm/lahaina
+LOCAL_PATH := device/realme/RMX3360
 
-# A/B
+# A/B support
+AB_OTA_UPDATER := true
+
+# A/B updater updatable partitions list. Keep in sync with the partition list
+# with "_a" and "_b" variants in the device.
 AB_OTA_PARTITIONS += \
     boot \
+    dtbo \
+    product \
     system \
-    vendor
+    system_ext \
+    vendor \
+    vbmeta \
+    vbmeta_system \
+    vendor_boot
 
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
@@ -32,13 +42,10 @@ AB_OTA_POSTINSTALL_CONFIG += \
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service
+    android.hardware.boot@1.1-impl \
+    android.hardware.boot@1.1-service
 
 PRODUCT_PACKAGES += \
-    bootctrl.lahaina
-
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
     bootctrl.lahaina \
     libgptutils \
     libz \
@@ -50,3 +57,8 @@ PRODUCT_PACKAGES += \
     update_engine \
     update_verifier \
     update_engine_sideload
+
+# qcom decryption
+PRODUCT_PACKAGES += \
+    qcom_decrypt \
+    qcom_decrypt_fbe

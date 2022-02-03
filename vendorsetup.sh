@@ -16,5 +16,4 @@
 # limitations under the License.
 #
 
-add_lunch_combo omni_lahaina-userdebug
-add_lunch_combo omni_lahaina-eng
+export ALLOW_MISSING_DEPENDENCIES=true
