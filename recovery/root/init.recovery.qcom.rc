@@ -57,17 +57,25 @@ on fs
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
     mount vfat /dev/block/bootdevice/by-name/spunvm /mnt/vendor/spunvm rw noatime shortname=lower,uid=1000,gid=1000,dmask=007,fmask=007,context=u:object_r:vendor_spunvm_file:s0
 
+service modprobe /system/bin/modprobe.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
+
 on property:ro.boot.usbcontroller=*
     setprop sys.usb.controller ${ro.boot.usbcontroller}
     write /sys/class/udc/${ro.boot.usbcontroller}/device/../mode peripheral
 
 on boot
-    chmod 0777 /system/bin/modprobe.sh
     start modprobe
     start health-hal-2-1
+    start qti.vibrator
 
 on post-fs
     start boot-hal-1-1
+    stop qti.vibrator
 
 on charger
     setprop sys.usb.controller a600000.dwc3
