@@ -55,6 +55,11 @@ PRODUCT_PACKAGES += \
     libz \
     libcutils
 
+#  Health
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.1-impl.recovery \
+    android.hardware.health@2.1-service
+
 # OTA
 PRODUCT_PACKAGES += \
     otapreopt_script \

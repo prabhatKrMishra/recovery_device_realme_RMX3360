@@ -64,6 +64,12 @@ service modprobe /system/bin/modprobe.sh
     oneshot
     seclabel u:r:recovery:s0
 
+service health-hal-2-1 /system/bin/android.hardware.health@2.1-service
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
 on property:ro.boot.usbcontroller=*
     setprop sys.usb.controller ${ro.boot.usbcontroller}
     write /sys/class/udc/${ro.boot.usbcontroller}/device/../mode peripheral
