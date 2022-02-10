@@ -36,13 +36,21 @@ on early-init
     symlink /vendor/dsp /dsp
 
 on init
+    mount_all /vendor/etc/charger_fw_fstab.qti --early
     write /sys/class/backlight/panel0-backlight/brightness 200
     setprop sys.usb.configfs 1
 
-on init && property:ro.boot.mode=charger
-    mount_all /vendor/etc/charger_fw_fstab.qti --early
+on property:twrp.modules.loaded=true
+    wait /sys/kernel/boot_adsp/boot
     write /sys/kernel/boot_adsp/boot 1
     wait /sys/class/power_supply/battery
+
+service modprobe /system/bin/modprobe.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
 
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
@@ -64,10 +72,3 @@ on post-fs
 on charger
     setprop sys.usb.controller a600000.dwc3
     setprop sys.usb.configfs 1
-
-service modprobe /system/bin/modprobe.sh
-    user root
-    group root
-    disabled
-    oneshot
-    seclabel u:r:recovery:s0

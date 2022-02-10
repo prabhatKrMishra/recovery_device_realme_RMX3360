@@ -153,6 +153,7 @@ PLATFORM_VERSION := 16.1.0
 # TWRP Configuration
 TW_INCLUDE_REPACKTOOLS := true
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
+TW_CUSTOM_BATTERY_PATH := "/sys/class/power_supply/battery"
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_THEME := portrait_hdpi
 TW_EXTRA_LANGUAGES := true
@@ -173,6 +174,7 @@ TW_H_OFFSET := -120
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
 TW_OVERRIDE_SYSTEM_PROPS := \
     "ro.build.date.utc;ro.build.product;ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental"
+TW_LOAD_VENDOR_MODULES := "adsp_loader_dlkm.ko oplus_chg.ko qti_battery_debug.ko"
 
 # TWRP Debug Flags
 TARGET_USES_LOGD := true
