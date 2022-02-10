@@ -77,11 +77,9 @@ on property:ro.boot.usbcontroller=*
 on boot
     start modprobe
     start health-hal-2-1
-    start qti.vibrator
 
 on post-fs
     start boot-hal-1-1
-    stop qti.vibrator
 
 on charger
     setprop sys.usb.controller a600000.dwc3
