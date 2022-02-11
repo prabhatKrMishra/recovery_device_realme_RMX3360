@@ -178,7 +178,7 @@ TW_OVERRIDE_SYSTEM_PROPS := \
 TW_LOAD_VENDOR_MODULES := "adsp_loader_dlkm.ko oplus_chg.ko qti_battery_debug.ko"
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone50/temp"
 
-# TWRP extra version
+# TWRP device version
 TW_DEVICE_VERSION ?= RE54ABL1
 
 # TWRP Debug Flags
