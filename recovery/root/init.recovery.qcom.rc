@@ -39,6 +39,13 @@ on init
     mount_all /vendor/etc/charger_fw_fstab.qti --early
     write /sys/class/backlight/panel0-backlight/brightness 200
     setprop sys.usb.configfs 1
+    mount tmpfs tmpfs /tmp size=80%
+    #Shuangquan.Du@PSW.AD.Recovery.0, 2018/07/21, Add for usb otg
+    mkdir /usb_otg
+    mkdir /firmware
+    
+    mkdir /mnt/vendor/persist
+    mount ext4 /dev/block/by-name/persist /mnt/vendor/persist rw
 
 on property:twrp.modules.loaded=true
     wait /sys/kernel/boot_adsp/boot
@@ -52,10 +59,19 @@ service modprobe /system/bin/modprobe.sh
     oneshot
     seclabel u:r:recovery:s0
 
+on property:modem.partition.mounted=1
+    insmod /vendor/lib/modules/q6_pdr_dlkm.ko
+    insmod /vendor/lib/modules/q6_notifier_dlkm.ko
+    insmod /vendor/lib/modules/snd_event_dlkm.ko
+    insmod /vendor/lib/modules/apr_dlkm.ko
+    insmod /vendor/lib/modules/adsp_loader_dlkm.ko
+    write /sys/kernel/boot_adsp/boot 1
+    wait /sys/class/power_supply/battery
+
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-    mount vfat /dev/block/bootdevice/by-name/spunvm /mnt/vendor/spunvm rw noatime shortname=lower,uid=1000,gid=1000,dmask=007,fmask=007,context=u:object_r:vendor_spunvm_file:s0
+    write /sys/class/oplus_chg/usb/otg_switch 1
 
 service modprobe /system/bin/modprobe.sh
     user root
