@@ -445,16 +445,6 @@
         <fqname>@1.0::IDeviceInfo/deviceinfo</fqname>
     </hal>
     <hal format="hidl">
-        <name>vendor.qti.hardware.secureprocessor.device</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>ISecureProcessor</name>
-            <instance>qti-tee</instance>
-        </interface>
-        <fqname>@1.0::ISecureProcessor/qti-tee</fqname>
-    </hal>
-    <hal format="hidl">
         <name>vendor.qti.hardware.sensorscalibrate</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -475,14 +465,14 @@
         <fqname>@1.0::ISoter/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>vendor.qti.hardware.tui_comm</name>
+        <name>vendor.qti.hardware.sxrhal</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>ITuiComm</name>
-            <instance>default</instance>
+            <name>ISxrCrypto</name>
+            <instance>sxrhalservice</instance>
         </interface>
-        <fqname>@1.0::ITuiComm/default</fqname>
+        <fqname>@1.0::ISxrCrypto/sxrhalservice</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.hardware.vpp</name>
